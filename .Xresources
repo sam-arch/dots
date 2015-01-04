@@ -1,0 +1,47 @@
+! urxvt
+URxvt.background: #101010
+URxvt.foreground: #999993
+URxvt.cursorColor: #395573
+URxvt.borderColor: #101010
+URxvt.colorUL: #31658C
+URxvt.borderless: false
+URxvt.internalBorder: 3
+URxvt.externalBorder: 3
+URxvt.scrollBar: false
+URxvt.font: xft:terminus:size=10:antialias=true
+URxvt.boldFont: xft:terminus:bold:size=10:antialias=true
+
+! transparency
+!URxvt.transparent: true
+!URxvt.tintColor: #101010
+!URxvt.shading: 4
+
+! clickable urls
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
+
+! tabs
+URxvt.tabbed.tabbar-bg: -1
+URxvt.tabbed.tabbar-fg: -2
+URxvt.tabbed.tab-bg: -2
+URxvt.tabbed.tab-fg: -1
+URxvt.tabbed.title-bg: -1
+URxvt.tabbed.title-fg: -2
+URxvt.tabbed.autohide: true
+URxvt.tabbed.new-button: false
+URxvt.tabbed.title: true
+
+
+! colours
+#include "/home/sam87/.colors/earth.colours"
+!#include "/home/sam87/.colors/phreak.colors"
+
+
+ 
+! fonts
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
