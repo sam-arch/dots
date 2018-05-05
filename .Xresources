@@ -1,5 +1,5 @@
 ! urxvt
-URxvt.background: #101010
+URxvt.background: #000000
 URxvt.foreground: #999993
 URxvt.cursorColor: #395573
 URxvt.borderColor: #101010
@@ -34,7 +34,7 @@ URxvt.tabbed.title: true
 
 
 ! colours
-#include "/home/sam87/.colors/earth.colours"
+#include "/home/murph/.colors/darken.colors"
 !#include "/home/sam87/.colors/phreak.colors"
 
 
