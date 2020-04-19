@@ -7,8 +7,15 @@
 num_mon=$(bspc query -M | wc -l)
 
 while read -r line ; do
-
 	case $line in
+		S*)
+			# clock output
+			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+			batt="apm | grep -i 'time' | head -1| awk '{print $4}'"
+			;;
+		T*)
+			# xtitle output
+						;;
 		W*)
 			# bspwm's state
 			wm=
@@ -107,5 +114,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}%{r}"
+	printf "%s\n" "%{l}${wm}%{c}%{r}${sys}${batt}"
 done

@@ -9,7 +9,7 @@ setopt appendhistory autocd beep extendedglob nomatch notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/sam87/.zshrc'
+zstyle :compinstall filename '/usr/home/sam/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -47,6 +47,11 @@ export PATH=$PATH:$GOPATH/bin
 
 autoload promptinit
 promptinit
-PATH=$PATH:/home/sam87/.config/panel
+PATH=$PATH:/usr/home/sam/.config/panel:/usr/local/go/bin
+export PANEL_FIFO=/tmp/panel-fifo
+export LANG=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
 export LSCOLORS=cxfxcxdxcxegedabagacad ##unix anyone?
-PS1=$'%{\e[1;30m%}[%{\e[0m%} %{\e[1;32m%}%~%{\e[0m%}%{\e[1;30m%}]%{\e[0m%}%{\e[0;30m%}>>%{\e[0m%} '
+
+PS1='%(#.%F{red}o %F{default}.%F{green}o %F{default})'
+RPS1="%d"
