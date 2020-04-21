@@ -1,0 +1,18 @@
+.left, .right {
+	height: 50vh;
+	width: 100%
+}
+@media (min-width: 768px) {
+  .left, .right {height: 100vh;}
+}
+.left {
+/*background-color: red;*/
+font-family: 'Source Sans Pro', sans-serif;
+background-image: url('images/coconut.jpg');
+}
+
+.right {
+	/*background-color: blue;*/
+font-family: 'Source Sans Pro', sans-serif;
+background-image: url('images/coconut.jpg');
+}
