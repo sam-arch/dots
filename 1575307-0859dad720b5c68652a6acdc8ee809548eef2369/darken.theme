@@ -1,0 +1,244 @@
+#################################################################
+# aka theme (v1.1 - DARKEN EDITION)        #
+# by curson [navaeg@gmail.com] - http://www.the-shrike.net  #
+#################################################################
+
+# these characters are automatically replaced with specified color
+# (dark grey by default)
+replaces = { "°°=" = "%g$0-%n"; };
+
+abstracts = {
+  ##
+  ## generic
+  ##
+
+  # text to insert at the beginning of each non-message line
+  #line_start = "%w.%g.%w.%n ";
+  line_start = "%n";
+
+  # timestamp styling, nothing by default
+  timestamp = "%B$0-%n";
+
+  # any kind of text that needs hilighting, default is to bold
+  hilight = "%_$0-%_";
+
+  # any kind of error message, default is bright red
+  error = "%g$0-%n";
+
+  # channel name is printed
+  channel = "%g$0-%n";
+
+  # nick is printed
+  nick = "%g%_$0-%_";
+
+  # nick host is printed
+  nickhost = "%w:%g$0-%w:%n";
+
+  # server name is printed
+  server = "%_$0-%_";
+
+  # some kind of comment is printed
+  comment = "($0-)";
+
+  # reason for something is printed (part, quit, kick, ..)
+  reason = "{comment $0-}";
+
+  # mode change is printed ([+o nick])
+  mode = "{comment $0-}";
+
+  ##
+  ## channel specific messages
+  ##
+
+  # highlighted nick/host is printed (joins)
+  channick_hilight = "%g$0-%n";
+  chanhost_hilight = "{nickhost %g$0-%n}";
+
+  # nick/host is printed (parts, quits, etc.)
+  channick = "%g$0-%n";
+  chanhost = "{nickhost $0-}";
+
+  # highlighted channel name is printed
+  channelhilight = "%g$0-%n";
+
+  # ban/ban exception/invite list mask is printed
+  ban = "%g$0-%n";
+
+  ##
+  ## messages
+  ##
+
+  # the basic styling of how to print message, $0 = nick mode, $1 = nick
+  msgnick = "%_$0%_$1- %|";
+
+  # $0 = nick mode, $1 = nick
+  ownmsgnick = "{msgnick %B<%_$0%_ $1-%B>}%n";
+  ownnick = "%w$0-%n";
+
+  # public message in channel, $0 = nick mode, $1 = nick
+  pubmsgnick = "{msgnick %B<%_$0%_ %w$1-%B>%n}";
+  pubnick = "$0-%w";
+
+  # public message in channel meant for me, $0 = nick mode, $1 = nick
+  pubmsgmenick = "{msgnick %B<%_$0%_ %w$1-%g%B>}%n";
+  menick = "%g$0-%n";
+
+  # public message highlighted
+  pubmsghinick = "{msgnick %B<%w$1 %w$2-%w%B>}%g";
+
+  # channel name is printed with message
+  msgchannel = "%g~%c$0-%n";
+
+  # private message, $0 = nick, $1 = host
+  privmsg = "%g<%w$0%w(%g$1-%B)%g>%n ";
+
+  # private message from you, $0 = "msg", $1 = target nick
+  ownprivmsg = "%g<$0%w(%w$1-%c)%g>%w ";
+
+  # own private message in query
+  ownprivmsgnick = "{msgnick  $0-}";
+  ownprivnick = "%g<$0-%g>%w";
+
+  # private message in query
+  privmsgnick = "{msgnick  %B<%w$0-%B>%n}";
+
+  ##
+  ## Actions (/ME stuff)
+  ##
+
+  # used internally by this theme
+  action_core = "%g** %n$0- $1-";
+
+  # generic one that's used by most actions
+  action = "%g** %n$0- $1-";
+
+  # own action, both private/public
+  ownaction = "%g** %n$0- $1-";
+
+  # own action with target, both private/public
+  ownaction_target = "%g** %n$0- $1-";
+
+  # private action sent by others
+  pvtaction = "%g** %n$0- $1-";
+  pvtaction_query = "%g** %n$0- $1-";
+
+  # public action sent by others
+  pubaction = "%g** %n$0- $1-";
+
+
+  ##
+  ## other IRC events
+  ##
+
+  # notices
+  ownnotice = "%g$0%B(%W$1-%B)%n ";
+  notice = "%B-%g$0-%B-%n ";
+  pubnotice_channel = "%B:%g$0-";
+  pvtnotice_host = "%B(%g$0-%B)";
+  servernotice = "%w!$0-%n ";
+
+  # CTCPs
+  ownctcp = "%g$0%B(%g$1-%B) ";
+  ctcp = "%g$0-%n";
+
+  # wallops
+  wallop = "%W$0-%n: ";
+  wallop_nick = "%n$0-";
+  wallop_action = "%W * $0-%n ";
+
+  # netsplits
+  netsplit = "%g$0-%n";
+  netjoin = "%g$0-%n";
+
+  # /names list
+  names_nick = "%B[$0%g$1-%B]%n ";
+  names_users = "%B[%w$0-%B]%n";
+  names_channel = "%w$0-%n";
+
+  # DCC
+  dcc = "~%g$0-%n~";
+  dccfile = "%_$0-%_";
+
+  # DCC chat, own msg/action
+  dccownmsg = "-%w$0%w($1-%B)%n- ";
+  dccownnick = "%g$0-%n";
+  dccownaction = "{action $0-}";
+  dccownaction_target = "{action_core $0}%B:%g$1%n ";
+
+  # DCC chat, others
+  dccmsg = "-%W$1-%B(%c$0%B)%n- ";
+  dccquerynick = "~%g$0-%n~";
+  dccaction = " %g.%w°%w.%n %g$0-%n %|";
+
+  ##
+  ## statusbar
+  ##
+
+  # background of statusbar
+  #sb_background = "%N"; #this is transparent
+  sb_background = "%N";
+  #this is black
+
+  # background for prompt / input line
+  sb_prompt_bg = "%n";
+  sb_info_bg = "%2";
+
+  # default statusbar item style
+  sb = "%B-[%n$0-%B]-%n";
+
+  sbmode = "%n%_%g %w(%g+$0-%w)%n";
+  sbaway = " (%gAWAY%n)";
+  sbservertag = ":$0 (change with ^X)";
+  sbmore = "%_-- more --%_";
+  sblag = "{sb Lag: $0-}";
+  sbmail = "{sb Mail: $0-}";
+
+  # usercount
+  sb_usercount = "{sb users: %g$0%n %n$1-%n}";
+  sb_uc_ircops = "%g*%w$*";
+  sb_uc_ops = "%g@%W%_$*";
+  sb_uc_halfops = "%_%g%%%W%_$*";
+  sb_uc_voices = "%_%g+%W%_$*";
+  sb_uc_normal = "%w$*";
+  sb_uc_space = " ";
+
+
+  # text at the beginning of statusbars. sb-item already puts
+  # space there,so we don't use anything by default.         
+  sbstart = "";
+  # text at the end of statusbars. Use space so that it's never
+  # used for anything.                                         
+  sbend = " ";
+
+  prompt = "%B[%W$*%B]%W> ";
+
+  topicsbstart = "%Y[%n{sbstart $*}";
+  topicsbend = "{sbend $*} %Y]";
+
+  # activity in statusbar
+
+  # ',' separator
+  sb_act_sep = "%g$*";
+  # normal text       
+  sb_act_text = "%w$*";
+  # public message     
+  sb_act_msg = "%W$*";
+  # hilight
+  sb_act_hilight = "%g$*";
+  # hilight with specified color, $0 = color, $1 = text
+  sb_act_hilight_color = "$0$1-%n";
+
+  # activity. Det is used for hilights when display doesn't support colors
+  sbact = "{sb {sbact_act $0}{sbact_det $1}}";
+  sbact_act = " Act: $0-";
+  sbact_det = " Det: $0-";
+};
+formats = {
+  "fe-common/core" = {
+    pubmsg = "{pubmsgnick $2 {pubnick $0}}$1";
+    join = "%g>> %W$0 %g>>%n {chanhost $1} %whas joined %g$2";
+    part = "%g< %W$0 %g<%n {chanhost $1} %whas left %g$2 %g[%w$3%g]";
+    quit = "%g<< %W$0 %g<<%n {chanhost $1} %whas quit %g[%w$2%g]";
+    kick = "%g<<%W!%g<< %g$0%n has been kicked from {channel $1} by {nick $2} %g[%w$3%g]";
+  };
+};
