@@ -8,8 +8,8 @@ URxvt.borderless: false
 URxvt.internalBorder: 3
 URxvt.externalBorder: 3
 URxvt.scrollBar: false
-URxvt.font: xft:Fantasque Sans Mono:size=14:antialias=true
-URxvt.boldFont: xft:Fantasque Sans Mono:bold:size=14:antialias=true
+URxvt.font: xft:Monaco for Powerline:size=12:antialias=true
+URxvt.boldFont: xft:Monaco for Powerline:bold:size=12:antialias=true
 
 ! transparency
 !URxvt.transparent: true
@@ -44,8 +44,9 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
 
-*background: #222222
+*background: #000000
 *foreground: #ffffff
+!#b5e853--this green is nice also
 !black
 *color0:  #010101
 *color8:  #3D3D3D

@@ -4,28 +4,33 @@
 force_xinerama yes
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-dejavu sans mono-medium-r-normal--10-*-*-*-m-*-iso10646-1
-
+#font -misc-dejavu sans mono-medium-r-normal--10-*-*-*-m-*-iso10646-1
+font pango: Monaco 12px 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
 #neverball
-for_window [class="neverball"] floating enable
-
+#for_window [class="neverball"] floating enable
+#firefox
+assign [class="Firefox"] firefox
+#vscode
+assign [class="Code - OSS"] vscode
 # gimp
 assign [class="Gimp"] gimp
-bindsym Mod4+g workspace gimp
-for_window [title="GIMP Startup"] move workspace gimp
-for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
+#transmission
+assign [class="ktorrent"] torrent
+#bindsym Mod4+g workspace gimp
+#for_window [title="GIMP Startup"] move workspace gimp
+#for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
 
 # steam
-for_window [instance="hl2"] floating enable
-for_window [instance="popcapgame1.exe"] floating enable
-for_window [instance="Steam.exe"] floating enable
-for_window [title="Steam - Update News"] kill
+#for_window [instance="hl2"] floating enable
+#for_window [instance="popcapgame1.exe"] floating enable
+#for_window [instance="Steam.exe"] floating enable
+#for_window [title="Steam - Update News"] kill
 
 # auto floats
-for_window [class="Gcolor2"] float enable
+#for_window [class="Gcolor2"] float enable
 
 # class                 border  backgr. text
 client.focused          #91ab34 #91ab34 #000000
@@ -34,13 +39,13 @@ client.unfocused        #000000 #000000 #aaaaaa
 client.urgent           #870000 #870000 #ffffff
 
 # start a terminal
-bindsym Mod4+Shift+Return exec urxvt
-
+bindsym Mod4+u exec urxvt -sh 20 -tr
+#bindysm Mod4+u exec urxvt
 # kill focused window
 bindsym Mod4+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym Mod4+grave exec dmenu_red
+bindsym Mod4+d exec dmenu_run
 
 # change focus
 bindsym Mod4+j focus left
@@ -122,7 +127,14 @@ bindsym Mod4+Shift+q reload
 bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod4+Shift+e exit
-
+#move to next workspace
+bindsym Control+Right workspace next
+bindsym Control+Left workspace prev
+#open applications
+bindsym Mod4+b exec firefox
+bindsym Mod4+c exec vscode
+bindsym Mod4+g exec gimp
+bindsym Mod4+t exec ktorrent
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym Left        resize grow   left 10 px or 10 ppt
@@ -142,31 +154,22 @@ mode "resize" {
 bindsym Mod4+r mode "resize"
 
 bar {
- position top
- tray_output xinerama-0
- output xinerama-0
- font -misc-dejavu sans mono-medium-r-normal--10-*-*-*-m-*-iso10646-1
- colors {
-  focused_workspace #000000 #9ab53d
-  active_workspace #9ab53d #080808
-  inactive_workspace #e0e0e0 #080808
-  urgent_workspace #ffffff #870000
-  statusline #9ab53d
-  background #080808
- }
-}
+#    output            LVDS1
+    status_command    i3blocks
+    position          top
+#    mode              hide
+    workspace_buttons yes
+    tray_output       none
 
-bar {
- position top
- output xinerama-1
- status_command i3status
- font -misc-dejavu sans mono-medium-r-normal--10-*-*-*-m-*-iso10646-1
- colors {
-  focused_workspace #000000 #9ab53d
-  active_workspace #9ab53d #080808
-  inactive_workspace #e0e0e0 #080808
-  urgent_workspace #ffffff #870000
-  statusline #9ab53d
-  background #080808
- }
+    font Monaco
+
+    colors {
+        background #000000
+        statusline #ffffff
+
+        focused_workspace  #ffffff #91ab31
+        active_workspace   #ffffff #333333
+        inactive_workspace #91ab31 #222222
+        urgent_workspace   #ffffff #900000
+    }
 }
