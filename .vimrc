@@ -8,7 +8,7 @@ syntax on
 
 set mouse=a
 set nocompatible
-set nowrap
+set wrap
 set ruler
 set number
 set history=1000
@@ -29,14 +29,18 @@ hi! NonText ctermbg=NONE guibg=NONE
 
 map <silent><F2> :tabp<CR>
 map <silent><F3> :tabn<CR>
-map <F4> :tabnew
+map <silent><F4> :tabnew
 
-map <silent><F5> :PREVCOLOR<cr>
-map <silent><F6> :NEXTCOLOR<cr>
-
+"Nerdtree 
+map <silent><F6> :NERDTreeToggle<CR>
 " Completion --------------------------------------
 
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.o,*.fasl
 filetype plugin indent on
+"move lines up and down
+map <silent><S-d> <Esc>: m+<CR>
+map <silent><S-u> <Esc>: m-2<CR>
+vnoremap <S-d> :m '>+1<CR>gv=gv
+vnoremap <S-u> :m '<-2<CR>gv=gv
