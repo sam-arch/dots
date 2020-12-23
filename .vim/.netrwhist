@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/usr/home/sam/.vim/colors'
+let g:netrw_dirhist_3='/usr/home/sam/.vim'
+let g:netrw_dirhist_2='/usr/home/sam'
+let g:netrw_dirhist_1='/usr/home/sam/go/src/github.com/sam-arch/chilliproject'
+let g:netrw_dirhist_0='/usr/home/sam/go/src/github.com'
+let g:netrw_dirhist_9='/usr/home/sam/go/src/github.com/sam-arch'
+let g:netrw_dirhist_8='/usr/home/sam/go/src/github.com/sam-arch/admin'
+let g:netrw_dirhist_7='/usr/home/sam/go/src/github.com/sam-arch'
+let g:netrw_dirhist_6='/usr/home/sam/go/src/github.com/sam-arch/admin'
+let g:netrw_dirhist_5='/usr/home/sam/go/src/github.com/sam-arch'

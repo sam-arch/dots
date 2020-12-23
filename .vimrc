@@ -40,7 +40,8 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.o,*.fasl
 filetype plugin indent on
-
+set omnifunc=syntaxcomplete#Complete
+:set omnifunc=htmlcomplete#CompleteTags
 "move lines up and down:Shift+Up moves up
 "Shift+Down moves down, works in 
 "visual mode as well
@@ -58,6 +59,21 @@ set statusline+=%f
 set statusline+=\ %p%%
 "vim-go stuff
 "let g:go_highlight_types = 1
+"highlight function names
 let g:go_highlight_functions = 1
+"highlight function calls
 let g:go_highlight_function_calls = 1
+"highlight operators
 let g:go_highlight_operators = 1
+"open vim on last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+"emmet stuff
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+"call plug#begin()
+"Plug 'mattn/emmet-vim'
+"call plug#end()
