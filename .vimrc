@@ -22,18 +22,30 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set path+=**
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=manual
+set ignorecase
 set laststatus=2
+set cursorline
+set title
+set linebreak
+set undodir=~/.vim/undodir
+hi CursorLine term=bold cterm=none ctermbg=none guibg=Grey40
 "hi Normal  gui=NONE guibg=NONE ctermbg=NONE
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
-
+highlight Pmenu ctermbg=green guibg=NONE
 " HotKeys -----------------------------------------
-map <silent><F2> :tabp<CR>
-map <silent><F3> :tabn<CR>
+map <silent><PageUp> :tabp<CR>
+map <silent><PageDown> :tabn<CR>
 map <silent><F4> :tabnew
-
-"Nerdtree 
-map <silent><F6> :NERDTreeToggle<CR>
+"netrw native file explorer, NERDtree is an alternative
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
+let g:netrw_winsize= 20
 
 " Completion --------------------------------------
 set wildmenu
@@ -45,18 +57,21 @@ set omnifunc=syntaxcomplete#Complete
 "move lines up and down:Shift+Up moves up
 "Shift+Down moves down, works in 
 "visual mode as well
-map <silent><S-d> <Esc>: m+<CR>
-map <silent><S-u> <Esc>: m-2<CR>
-vnoremap <S-d> :m '>+1<CR>gv=gv
-vnoremap <S-u> :m '<-2<CR>gv=gv
-
-"move through mutilple files
-nnoremap <S-a> :next<CR>
-nnoremap <S-z> :previous<CR>
+map <silent><C-j> <Esc>: m+<CR>
+map <silent><C-k> <Esc>: m-2<CR>
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+map <silent><C-m>: term
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ycm-core/YouCompleteMe'
+call vundle#end()
 
 "statusline
 set statusline+=%f
 set statusline+=\ %p%%
+set statusline+=\ %l\ %c
 "vim-go stuff
 "let g:go_highlight_types = 1
 "highlight function names
@@ -71,9 +86,9 @@ if has("autocmd")
 endif
 
 "emmet stuff
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css EmmetInstall
+let g:ycm_filetype_blacklist = { 'go': 1 }
 "call plug#begin()
 "Plug 'mattn/emmet-vim'
 "call plug#end()
