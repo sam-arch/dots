@@ -1,7 +1,7 @@
 " Colors ------------------------------------------
 "
  set t_Co=256
- colorscheme solarized
+ colorscheme darken
  syntax on
 
 " " General -----------------------------------------
@@ -34,7 +34,10 @@
  set linebreak
  set undodir=~/.vim/undodir
  "other settings
- hi CursorLineNr    term=bold cterm=bold ctermfg=012 gui=bold 
+"hi CursorLineNr    term=bold cterm=bold ctermfg=none
+hi LineNr ctermfg=grey ctermbg=black
+hi CursorLine cterm=NONE ctermbg=08
+hi CursorLineNr    term=bold cterm=bold ctermfg=012 gui=bold
  " HotKeys -----------------------------------------
  map <silent><PageUp> :tabp<CR>
  map <silent><PageDown> :tabn<CR>
@@ -51,14 +54,16 @@
  filetype plugin indent on
  set omnifunc=syntaxcomplete#Complete
  :set omnifunc=htmlcomplete#CompleteTags
-" "move lines up and down:Shift+Up moves up
-" "Shift+Down moves down, works in 
-" "visual mode as well
+" move lines up and down:Shift+Up moves up
+" Shift+Down moves down, works in 
+" visual mode as well
  map <silent><C-j> <Esc>: m+<CR>
  map <silent><C-k> <Esc>: m-2<CR>
  vnoremap <C-j> :m '>+1<CR>gv=gv
  vnoremap <C-k> :m '<-2<CR>gv=gv
  map <silent><C-m>: term
+ inoremap {<CR> {<CR>}<C-o>O
+ inoremap "<CR> "<CR>"<C-o>O
  "statusline
  set statusline+=%f
  set statusline+=\ %p%%
@@ -75,3 +80,11 @@
  if has("autocmd")
    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'fatih/vim-go'
+call vundle#end()            " required
+filetype plugin indent on
