@@ -37,7 +37,7 @@
 "hi CursorLineNr    term=bold cterm=bold ctermfg=none
 hi LineNr ctermfg=grey ctermbg=black
 hi CursorLine cterm=NONE ctermbg=08
-hi CursorLineNr    term=bold cterm=bold ctermfg=012 gui=bold
+hi CursorLineNr    term=bold cterm=bold ctermbg=08 gui=bold
  " HotKeys -----------------------------------------
  map <silent><PageUp> :tabp<CR>
  map <silent><PageDown> :tabn<CR>
